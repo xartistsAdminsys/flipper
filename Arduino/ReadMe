@@ -1,0 +1,14 @@
+# Exploration RFID avec Flipper Zero - Exemple Basique
+
+Ce projet démontre une interaction simple mais fonctionnelle avec la technologie RFID à l'aide d'un Arduino et du lecteur RFID MFRC522, en mettant en lumière les capacités du Flipper Zero en matière de manipulation RFID. Le code permet aux utilisateurs d'expérimenter avec des cartes RFID grâce à trois modes :
+
+1. **Mode Vérification** : Lit l'UID d'une carte RFID et vérifie si elle correspond à une carte enregistrée. Si des crédits sont disponibles, l'accès est autorisé et un crédit est déduit.
+2. **Mode Enregistrement** : Enregistre une nouvelle carte RFID, attribue des crédits et écrit les données de crédit dans un bloc spécifique de la carte.
+3. **Mode Test** : Lit et affiche le contenu du bloc de crédit sur la carte RFID à des fins de test.
+
+## Fonctionnalités
+- **Changement de mode contrôlé par un bouton** : Un bouton permet de basculer entre les différents modes.
+- **Indicateurs LED et Buzzer** : Fournit des signaux visuels et sonores en fonction du mode actuel et des opérations effectuées.
+- **Système de crédits basique** : Les crédits sont stockés et manipulés sur la carte RFID, permettant de réaliser des expériences simples de contrôle d'accès.
+
+Cet exemple est idéal pour ceux qui souhaitent s'initier à la technologie RFID et explorer les possibilités offertes par le Flipper Zero en matière de RFID.
